@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Wrapped</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: linear-gradient(135deg, #ffccd5, #ffc8dd, #ffafcc);
+      background-size: 600% 600%;
+      animation: gradientShift 20s ease infinite;
+      color: #333;
+    }
+
+    @keyframes gradientShift {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    .page-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      color: #c9184a;
+      text-align: center;
+      margin: 4rem 0 2rem;
+    }
+
+    .stat-section {
+      max-width: 700px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      text-align: center;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+
+    .stat-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      color: #c9184a;
+      font-weight: bold;
+      margin: 1rem 0;
+    }
+
+    .stat-label {
+      font-size: 1.2rem;
+      color: #a4133c;
+    }
+
+    .chart-container {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+  </style>
+</head>
+<body>
+
+  <h1 class="page-title">Our 2025 Wrapped</h1>
+
+  <div class="stat-section" data-target="514">
+    <div class="stat-number">0</div>
+    <div class="stat-label">Hours Called This Year 📞</div>
+  </div>
+
+  <div class="stat-section" data-target="1287">
+    <div class="stat-number">0</div>
+    <div class="stat-label">"I Love You"s Sent ❤️</div>
+  </div>
+
+  <div class="stat-section" data-target="942">
+    <div class="stat-number">0</div>
+    <div class="stat-label">"I Miss You"s 😔</div>
+  </div>
+
+  <div class="stat-section" data-target="82">
+    <div class="stat-number">0</div>
+    <div class="stat-label">Playful "F*ck You"s 🤬💕</div>
+  </div>
+
+  <div class="stat-section" data-target="5324">
+    <div class="stat-number">0</div>
+    <div class="stat-label">Messages Sent 💬</div>
+  </div>
+
+  <div class="chart-container">
+    <h2 style="text-align:center; color:#c9184a;">Monthly "I Love You"s ❤️</h2>
+    <canvas id="loveChart"></canvas>
+  </div>
+
+  <script>
+    const sections = document.querySelectorAll('.stat-section');
+
+    function animateStats(entry) {
+      if (entry.isIntersecting) {
+        const section = entry.target;
+        const stat = section.querySelector('.stat-number');
+        const target = +section.dataset.target;
+        let count = 0;
+        const step = Math.ceil(target / 100);
+
+        function update() {
+          count += step;
+          if (count >= target) {
+            stat.textContent = target.toLocaleString();
+          } else {
+            stat.textContent = count.toLocaleString();
+            requestAnimationFrame(update);
+          }
+        }
+
+        if (!section.classList.contains('visible')) {
+          section.classList.add('visible');
+          update();
+        }
+
+        observer.unobserve(section);
+      }
+    }
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(animateStats);
+    }, { threshold: 0.3 });
+
+    sections.forEach(section => observer.observe(section));
+
+    const ctx = document.getElementById('loveChart').getContext('2d');
+    const loveChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        datasets: [{
+          label: 'I Love You's',
+          data: [101, 115, 134, 123, 143, 110, 98, 102, 134, 158, 167, 202],
+          backgroundColor: '#ff6392',
+          borderRadius: 8
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: (ctx) => `${ctx.raw} I love you's`
+            }
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: { color: '#a4133c' },
+            grid: { color: 'rgba(0,0,0,0.05)' }
+          },
+          x: {
+            ticks: { color: '#a4133c' },
+            grid: { display: false }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
