@@ -51,6 +51,8 @@
       color: #a4133c;
     }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 <body>
 
@@ -98,6 +100,12 @@
       <div class="stat-label">Photos Shared 📸</div>
       <div class="stat-subtext">Damn if I could see myself more</div>
     </div>
+
+    <div class="stat-section" id="love-chart-section">
+      <div class="stat-label" style="margin-bottom: 1rem; font-size: 1.5rem;">"I Love You's" by Month 💌</div>
+      <canvas id="loveChart" width="400" height="300"></canvas>
+    </div>
+
   </main>
 
   <script>
@@ -137,5 +145,57 @@
 
     sections.forEach(section => observer.observe(section));
   </script>
+
+  <script>
+  const ctx = document.getElementById('loveChart').getContext('2d');
+  const loveChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+      datasets: [{
+        label: "I Love You's ❤️",
+        data: [101, 110, 95, 120, 135, 145],
+        backgroundColor: '#ffb3c6',
+        borderColor: '#c9184a',
+        borderWidth: 2,
+        borderRadius: 10,
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          display: false
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: {
+            color: '#a4133c',
+            font: {
+              size: 14
+            }
+          },
+          grid: {
+            color: '#ffe5ec'
+          }
+        },
+        x: {
+          ticks: {
+            color: '#a4133c',
+            font: {
+              size: 14
+            }
+          },
+          grid: {
+            color: '#fff0f5'
+          }
+        }
+      }
+    }
+  });
+</script>
+
 </body>
 </html>
