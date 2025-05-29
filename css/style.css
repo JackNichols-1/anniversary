@@ -116,3 +116,11 @@ main {
 .arrow:hover {
   background-color: #ffafcc;
 }
+
+.stat-subtext {
+  font-size: 0.9rem;
+  color: #a4133c;
+  font-style: italic;
+  margin-top: 0.3rem;
+}
+
