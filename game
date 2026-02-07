@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Love Crossword</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: #fff0f3;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      text-align: center;
+      color: #c9184a;
+      margin-bottom: 0.5rem;
+    }
+
+    p.subtitle {
+      text-align: center;
+      color: #555;
+      margin-bottom: 2rem;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+
+    .clue {
+      margin-bottom: 1.5rem;
+    }
+
+    .clue strong {
+      color: #c9184a;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 0.6rem;
+      margin-top: 0.4rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    button {
+      display: block;
+      margin: 2rem auto 0;
+      padding: 0.7rem 2rem;
+      font-size: 1rem;
+      border-radius: 30px;
+      border: none;
+      background: #c9184a;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #a4133c;
+    }
+
+    .result {
+      text-align: center;
+      margin-top: 1.5rem;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Our Love Crossword</h1>
+  <p class="subtitle">Only my favorite person can solve this 💕</p>
+
+  <div class="container">
+
+    <!-- Clues -->
+    <div class="clue">
+      <strong>1. Down:</strong> Where did we have our first kiss?
+      <input type="text" id="q1" placeholder="Your answer here">
+    </div>
+
+    <div class="clue">
+      <strong>2. Across:</strong> What city first felt like home with you?
+      <input type="text" id="q2">
+    </div>
+
+    <div class="clue">
+      <strong>3. Down:</strong> What food reminds me of you the most?
+      <input type="text" id="q3">
+    </div>
+
+    <div class="clue">
+      <strong>4. Across:</strong> What word describes us best?
+      <input type="text" id="q4">
+    </div>
+
+    <button onclick="checkAnswers()">Check Answers 💖</button>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function checkAnswers() {
+      // CHANGE THESE ANSWERS TO YOUR REAL ONES
+      const answers = {
+        q1: "park",
+        q2: "london",
+        q3: "pasta",
+        q4: "forever"
+      };
+
+      let correct = 0;
+      let total = Object.keys(answers).length;
+
+      for (let key in answers) {
+        const userAnswer = document.getElementById(key).value.trim().toLowerCase();
+        if (userAnswer === answers[key]) {
+          correct++;
+        }
+      }
+
+      const result = document.getElementById("result");
+
+      if (correct === total) {
+        result.innerHTML = "Perfect 💕 You know our love by heart.";
+      } else {
+        result.innerHTML = `You got ${correct} / ${total} right — try again, my love 😘`;
+      }
+    }
+  </script>
+
+</body>
+</html>
