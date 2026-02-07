@@ -43,8 +43,8 @@
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(6, 45px);
-      grid-template-rows: repeat(6, 45px);
+      grid-template-columns: repeat(11, 45px);
+      grid-template-rows: repeat(13, 45px);
       gap: 4px;
       justify-content: center;
     }
@@ -131,25 +131,86 @@
     <div class="crossword-wrapper">
 
       <!-- Crossword Grid -->
-      <div class="grid">
-        <!-- Row 1 -->
-        <input class="cell" id="c1"><input class="cell" id="c2"><input class="cell" id="c3"><input class="cell" id="c4"><input class="cell" id="c5"><div class="blocked"></div>
+<!-- Crossword Grid -->
+<div class="grid">
+  <!-- Row 1: 6b,g,6b -->
+  <div class="blocked"></div><div class="blocked"></div><div class="blocked"></div><div class="blocked"></div><div class="blocked"></div><div class="blocked"></div>
+  <input class="cell" id="c1">
+  <div class="blocked"></div><div class="blocked"></div><div class="blocked"></div><div class="blocked"></div><div class="blocked"></div><div class="blocked"></div>
 
-        <!-- Row 2 -->
-        <input class="cell" id="c6"><div class="blocked"></div><div class="blocked"></div><input class="cell" id="c7"><input class="cell" id="c8"><input class="cell" id="c9">
+  <!-- Row 2: 3b,g,2b,g,6b -->
+  <div class="blocked"></div><div class="blocked"></div><div class="blocked"></div>
+  <input class="cell" id="c2">
+  <div class="blocked"></div><div class="blocked"></div>
+  <input class="cell" id="c3">
+  <div class="blocked"></div><div class="blocked"></div><div class="blocked"></div><div class="blocked"></div><div class="blocked"></div><div class="blocked"></div>
 
-        <!-- Row 3 -->
-        <input class="cell" id="c10"><input class="cell" id="c11"><input class="cell" id="c12"><input class="cell" id="c13"><div class="blocked"></div><div class="blocked"></div>
+  <!-- Row 3: 3b,g,2b,g,3b,g,2b -->
+  <div class="blocked"></div><div class="blocked"></div><div class="blocked"></div>
+  <input class="cell" id="c4">
+  <div class="blocked"></div><div class="blocked"></div>
+  <input class="cell" id="c5">
+  <div class="blocked"></div><div class="blocked"></div><div class="blocked"></div>
+  <input class="cell" id="c6">
+  <div class="blocked"></div><div class="blocked"></div>
 
-        <!-- Row 4 -->
-        <div class="blocked"></div><div class="blocked"></div><input class="cell" id="c14"><input class="cell" id="c15"><input class="cell" id="c16"><input class="cell" id="c17">
+  <!-- Row 4: 3b,g,2b,5g,2b -->
+  <div class="blocked"></div><div class="blocked"></div><div class="blocked"></div>
+  <input class="cell" id="c7">
+  <div class="blocked"></div><div class="blocked"></div>
+  <input class="cell" id="c8">
+  <input class="cell" id="c9">
+  <input class="cell" id="c10">
+  <input class="cell" id="c11">
+  <input class="cell" id="c12">
+  <div class="blocked"></div><div class="blocked"></div>
 
-        <!-- Row 5 -->
-        <input class="cell" id="c18"><input class="cell" id="c19"><input class="cell" id="c20"><div class="blocked"></div><div class="blocked"></div><div class="blocked"></div>
+  <!-- Row 5: b,g,b,g,2b,g,3b,g,2b -->
+  <div class="blocked"></div>
+  <input class="cell" id="c13">
+  <div class="blocked"></div>
+  <input class="cell" id="c14">
+  <div class="blocked"></div><div class="blocked"></div>
+  <input class="cell" id="c15">
+  <div class="blocked"></div><div class="blocked"></div><div class="blocked"></div>
+  <input class="cell" id="c16">
+  <div class="blocked"></div><div class="blocked"></div>
 
-        <!-- Row 6 -->
-        <div class="blocked"></div><div class="blocked"></div><input class="cell" id="c21"><input class="cell" id="c22"><input class="cell" id="c23"><input class="cell" id="c24">
-      </div>
+  <!-- Row 6: b,6g,b,5g -->
+  <div class="blocked"></div>
+  <input class="cell" id="c17"><input class="cell" id="c18"><input class="cell" id="c19"><input class="cell" id="c20"><input class="cell" id="c21"><input class="cell" id="c22">
+  <div class="blocked"></div>
+  <input class="cell" id="c23"><input class="cell" id="c24"><input class="cell" id="c25"><input class="cell" id="c26"><input class="cell" id="c27">
+  
+  <!-- Row 7: b,g,8b,g,2b -->
+  <div class="blocked"></div>
+  <input class="cell" id="c28">
+  <div class="blocked"></div><div class="blocked"></div><div class="blocked"></div><div class="blocked"></div><div class="blocked"></div><div class="blocked"></div>
+  <input class="cell" id="c29">
+  <div class="blocked"></div><div class="blocked"></div>
+
+  <!-- Row 8: b,g,8b,g,2b -->
+  <div class="blocked"></div>
+  <input class="cell" id="c30">
+  <div class="blocked"></div><div class="blocked"></div><div class="blocked"></div><div class="blocked"></div><div class="blocked"></div><div class="blocked"></div>
+  <input class="cell" id="c31">
+  <div class="blocked"></div><div class="blocked"></div>
+
+  <!-- Row 9: 6g,7b -->
+  <input class="cell" id="c32"><input class="cell" id="c33"><input class="cell" id="c34"><input class="cell" id="c35"><input class="cell" id="c36"><input class="cell" id="c37">
+  <div class="blocked"></div><div class="blocked"></div><div class="blocked"></div><div class="blocked"></div><div class="blocked"></div><div class="blocked"></div;<div class="blocked"></div>
+
+  <!-- Row 10: b,g,11b -->
+  <div class="blocked"></div>
+  <input class="cell" id="c38">
+  <div class="blocked"></div><div class="blocked"></div><div class="blocked"></div><div class="blocked"></div><div class="blocked"></div><div class="blocked"></div><div class="blocked"></div><div class="blocked"></div><div class="blocked"></div><div class="blocked"></div>
+
+  <!-- Row 11: b,g,11b -->
+  <div class="blocked"></div>
+  <input class="cell" id="c39">
+  <div class="blocked"></div><div class="blocked"></div><div class="blocked"></div><div class="blocked"></div><div class="blocked"></div><div class="blocked"></div><div class="blocked"></div><div class="blocked"></div><div class="blocked"></div><div class="blocked"></div>
+</div>
+
 
       <!-- Clues -->
       <div class="clues">
