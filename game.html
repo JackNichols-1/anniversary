@@ -1,146 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Our Love Crossword</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Our Love Crossword</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      font-family: 'Open Sans', sans-serif;
-      background: #fff0f3;
-      margin: 0;
-      padding: 2rem;
-    }
+<style>
+  body {
+    font-family: 'Open Sans', sans-serif;
+    background: #fff0f3;
+    margin: 0;
+    padding: 2rem;
+  }
 
-    h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 3rem;
-      text-align: center;
-      color: #c9184a;
-      margin-bottom: 0.5rem;
-    }
+  h1 {
+    font-family: 'Great Vibes', cursive;
+    text-align: center;
+    font-size: 3rem;
+    color: #c9184a;
+  }
 
-    p.subtitle {
-      text-align: center;
-      color: #555;
-      margin-bottom: 2rem;
-    }
+  .container {
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
 
-    .container {
-      max-width: 800px;
-      margin: auto;
-      background: #fff;
-      padding: 2rem;
-      border-radius: 20px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-    }
+  /* Crossword grid */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(6, 45px);
+    grid-template-rows: repeat(6, 45px);
+    gap: 4px;
+    justify-content: center;
+  }
 
-    .clue {
-      margin-bottom: 1.5rem;
-    }
+  .cell input {
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    text-transform: uppercase;
+  }
 
-    .clue strong {
-      color: #c9184a;
-    }
+  .blocked {
+    background: #ffd6e0;
+    border-radius: 8px;
+  }
 
-    input[type="text"] {
-      width: 100%;
-      padding: 0.6rem;
-      margin-top: 0.4rem;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-    }
+  .clues h3 {
+    margin-top: 0;
+    color: #c9184a;
+  }
 
-    button {
-      display: block;
-      margin: 2rem auto 0;
-      padding: 0.7rem 2rem;
-      font-size: 1rem;
-      border-radius: 30px;
-      border: none;
-      background: #c9184a;
-      color: white;
-      cursor: pointer;
-    }
+  .clues p {
+    margin: 0.6rem 0;
+  }
 
-    button:hover {
-      background: #a4133c;
-    }
+  button {
+    grid-column: span 2;
+    margin: 1rem auto 0;
+    padding: 0.7rem 2.5rem;
+    border-radius: 30px;
+    border: none;
+    background: #c9184a;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+  }
 
-    .result {
-      text-align: center;
-      margin-top: 1.5rem;
-      font-weight: bold;
-      font-size: 1.1rem;
-    }
-  </style>
+  button:hover {
+    background: #a4133c;
+  }
+
+  .result {
+    grid-column: span 2;
+    text-align: center;
+    margin-top: 1rem;
+    font-weight: bold;
+  }
+</style>
 </head>
 <body>
 
-  <h1>Our Love Crossword</h1>
-  <p class="subtitle">Only my favorite person can solve this 💕</p>
+<h1>Our Love Crossword</h1>
 
-  <div class="container">
+<div class="container">
 
-    <!-- Clues -->
-    <div class="clue">
-      <strong>1. Down:</strong> Where did we have our first kiss?
-      <input type="text" id="q1" placeholder="Your answer here">
-    </div>
+  <!-- Crossword Grid -->
+  <div class="grid">
+    <!-- Row 1 -->
+    <div class="cell"><input id="c1"></div>
+    <div class="cell"><input id="c2"></div>
+    <div class="cell"><input id="c3"></div>
+    <div class="cell"><input id="c4"></div>
+    <div class="cell"><input id="c5"></div>
+    <div class="blocked"></div>
 
-    <div class="clue">
-      <strong>2. Across:</strong> What city first felt like home with you?
-      <input type="text" id="q2">
-    </div>
+    <!-- Row 2 -->
+    <div class="cell"><input id="c6"></div>
+    <div class="blocked"></div>
+    <div class="blocked"></div>
+    <div class="cell"><input id="c7"></div>
+    <div class="cell"><input id="c8"></div>
+    <div class="cell"><input id="c9"></div>
 
-    <div class="clue">
-      <strong>3. Down:</strong> What food reminds me of you the most?
-      <input type="text" id="q3">
-    </div>
+    <!-- Row 3 -->
+    <div class="cell"><input id="c10"></div>
+    <div class="cell"><input id="c11"></div>
+    <div class="cell"><input id="c12"></div>
+    <div class="cell"><input id="c13"></div>
+    <div class="blocked"></div>
+    <div class="blocked"></div>
 
-    <div class="clue">
-      <strong>4. Across:</strong> What word describes us best?
-      <input type="text" id="q4">
-    </div>
+    <!-- Row 4 -->
+    <div class="blocked"></div>
+    <div class="blocked"></div>
+    <div class="cell"><input id="c14"></div>
+    <div class="cell"><input id="c15"></div>
+    <div class="cell"><input id="c16"></div>
+    <div class="cell"><input id="c17"></div>
 
-    <button onclick="checkAnswers()">Check Answers 💖</button>
+    <!-- Row 5 -->
+    <div class="cell"><input id="c18"></div>
+    <div class="cell"><input id="c19"></div>
+    <div class="cell"><input id="c20"></div>
+    <div class="blocked"></div>
+    <div class="blocked"></div>
+    <div class="blocked"></div>
 
-    <div class="result" id="result"></div>
+    <!-- Row 6 -->
+    <div class="blocked"></div>
+    <div class="blocked"></div>
+    <div class="cell"><input id="c21"></div>
+    <div class="cell"><input id="c22"></div>
+    <div class="cell"><input id="c23"></div>
+    <div class="cell"><input id="c24"></div>
   </div>
 
-  <script>
-    function checkAnswers() {
-      // CHANGE THESE ANSWERS TO YOUR REAL ONES
-      const answers = {
-        q1: "park",
-        q2: "london",
-        q3: "pasta",
-        q4: "forever"
-      };
+  <!-- Clues -->
+  <div class="clues">
+    <h3>Across</h3>
+    <p><strong>1.</strong> Where did we have our first kiss? (5)</p>
+    <p><strong>2.</strong> A word that describes us forever (4)</p>
 
-      let correct = 0;
-      let total = Object.keys(answers).length;
+    <h3>Down</h3>
+    <p><strong>3.</strong> Food that reminds me of you (5)</p>
+    <p><strong>4.</strong> The feeling you give me (4)</p>
+  </div>
 
-      for (let key in answers) {
-        const userAnswer = document.getElementById(key).value.trim().toLowerCase();
-        if (userAnswer === answers[key]) {
-          correct++;
-        }
-      }
+  <button onclick="checkCrossword()">Check Answers 💕</button>
+  <div class="result" id="result"></div>
 
-      const result = document.getElementById("result");
+</div>
 
-      if (correct === total) {
-        result.innerHTML = "Perfect 💕 You know our love by heart.";
-      } else {
-        result.innerHTML = `You got ${correct} / ${total} right — try again, my love 😘`;
+<script>
+  function checkCrossword() {
+    // CHANGE THESE LETTERS TO MATCH YOUR REAL ANSWERS
+    const solution = {
+      c1:'P', c2:'A', c3:'R', c4:'K', c5:'S',       // PARKS
+      c6:'P', c7:'L', c8:'O', c9:'V',               // LOVE
+      c10:'P', c11:'A', c12:'S', c13:'T',           // PASTA
+      c14:'S', c15:'A', c16:'F', c17:'E',           // SAFE
+      c18:'U', c19:'S', c20:'!',                    // US!
+      c21:'L', c22:'O', c23:'V', c24:'E'            // LOVE
+    };
+
+    let correct = 0;
+    let total = Object.keys(solution).length;
+
+    for (let id in solution) {
+      const cell = document.getElementById(id);
+      if (cell && cell.value.toUpperCase() === solution[id]) {
+        correct++;
       }
     }
-  </script>
+
+    const result = document.getElementById("result");
+    if (correct === total) {
+      result.innerHTML = "Perfect 💖 You solved our love story.";
+    } else {
+      result.innerHTML = `So close 😘 ${correct} / ${total} letters correct`;
+    }
+  }
+</script>
 
 </body>
 </html>
