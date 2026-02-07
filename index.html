@@ -163,11 +163,13 @@
     </div>
   
     </main>
-  
     <script>
-      function toggleImage(img, src1, src2) {
-        img.src = (img.src.includes(src1)) ? src2 : src1;
-      }
+    function toggleImage(img, ...images) {
+      let current = img.dataset.index ? parseInt(img.dataset.index) : 0;
+      current = (current + 1) % images.length;
+      img.src = images[current];
+      img.dataset.index = current;
+    }
     </script>
   </body>
 </html>
