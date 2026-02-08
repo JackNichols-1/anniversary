@@ -188,7 +188,7 @@
           <img src="images/R3.jpg" alt="Memory 3">
           <p class="caption">Our first fuck together 💕</p>
         </div>
-        <button class="arrow right" onclick="scrollGallery(-1)">&#10095;</button>
+        <button class="arrow right" onclick="scrollGallery(1)">&#10095;</button>
       </div>
     </div>
 
@@ -200,6 +200,15 @@
       current = (current + 1) % images.length;
       img.src = images[current];
       img.dataset.index = current;
+    }
+
+    function scrollGallery(direction) {
+      const gallery = document.querySelector('.gallery');
+      const scrollAmount = 320; // width of photo-box (300px) + gap (20px)
+      gallery.scrollBy({
+      left: direction * scrollAmount,
+      behavior: 'smooth'
+      });
     }
     </script>
   
