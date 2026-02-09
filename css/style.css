@@ -71,16 +71,43 @@ main {
   gap: 1rem;  /* Add space between arrows and gallery */
 }
 
+
+
+
 .gallery {
   display: flex;
   align-items: center;
-  overflow-x: hidden;
+  overflow-x: auto;
   scroll-behavior: smooth;
   gap: 2rem;
-  flex: 1;  /* Gallery takes remaining space */
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  flex: 1;
+  scrollbar-width: thin;  /* Firefox */
+  scrollbar-color: #ffc2d1 #fff0f5;  /* thumb and track colors */
 }
+
+/* Chrome/Safari/Edge scrollbar styling */
+.gallery::-webkit-scrollbar {
+  height: 12px;  /* Scrollbar height */
+}
+
+.gallery::-webkit-scrollbar-track {
+  background: #fff0f5;  /* Track color (matches your body background) */
+  border-radius: 10px;
+}
+
+.gallery::-webkit-scrollbar-thumb {
+  background: #ffc2d1;  /* Thumb color (matches your arrow buttons) */
+  border-radius: 10px;
+}
+
+.gallery::-webkit-scrollbar-thumb:hover {
+  background: #ffafcc;  /* Darker pink on hover */
+}
+
+
+
+
+
 
 .arrow {
   background-color: #ffc2d1;
