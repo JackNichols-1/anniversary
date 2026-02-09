@@ -65,22 +65,25 @@ main {
   display: flex;
   justify-content: center;
   padding: 2rem;
+  max-width: 800px;  /* Match section width */
+  margin: 0 auto;    /* Center it */
 }
 
 .gallery {
   display: flex;
   align-items: center;
-  overflow-x: scroll;
+  overflow-x: hidden;  /* Change from scroll to hidden */
   scroll-behavior: smooth;
   gap: 2rem;
-  max-width: 90%;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE/Edge */
+  width: 100%;  /* Take full width of container */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .gallery::-webkit-scrollbar {
-  display: none; /* Chrome/Safari */
+  display: none;
 }
+
 
 .photo-box {
   min-width: 300px;
