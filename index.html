@@ -201,12 +201,13 @@
       img.src = images[current];
       img.dataset.index = current;
     }
+
     function scrollGallery(direction) {
       const gallery = document.querySelector('.gallery');
-      const scrollAmount = 282; // 250px (photo width) + 32px (2rem gap)
+      const scrollAmount = 320; // width of photo-box (300px) + gap (20px)
       gallery.scrollBy({
-        left: direction * scrollAmount,
-        behavior: 'smooth'
+      left: direction * scrollAmount,
+      behavior: 'smooth'
       });
     }
     </script>
