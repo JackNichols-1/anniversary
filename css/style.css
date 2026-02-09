@@ -64,21 +64,38 @@ main {
 .gallery-container {
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 2rem;
-  max-width: 800px;  /* Match section width */
-  margin: 0 auto;    /* Center it */
+  max-width: 800px;
+  margin: 0 auto;
+  gap: 1rem;  /* Add space between arrows and gallery */
 }
 
 .gallery {
   display: flex;
   align-items: center;
-  overflow-x: hidden;  /* Change from scroll to hidden */
+  overflow-x: hidden;
   scroll-behavior: smooth;
   gap: 2rem;
-  width: 100%;  /* Take full width of container */
+  flex: 1;  /* Gallery takes remaining space */
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
+
+.arrow {
+  background-color: #ffc2d1;
+  border: none;
+  padding: 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: background 0.3s;
+  flex-shrink: 0;  /* Prevent arrows from shrinking */
+}
+
+// maybe take out
 
 .gallery::-webkit-scrollbar {
   display: none;
@@ -110,17 +127,7 @@ main {
   color: #a4133c;
 }
 
-.arrow {
-  background-color: #ffc2d1;
-  border: none;
-  padding: 1rem;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 1.5rem;
-  color: white;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  transition: background 0.3s;
-}
+// Maybe take out
 
 .arrow:hover {
   background-color: #ffafcc;
