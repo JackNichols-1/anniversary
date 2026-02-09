@@ -101,16 +101,24 @@ main {
   display: none;
 }
 
-
 .photo-box {
-  min-width: 300px;
-  max-width: 300px;
+  min-width: 250px;  /* Reduce from 300px */
+  max-width: 250px;
   background-color: white;
   padding: 1rem;
   border-radius: 20px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
   transition: transform 0.3s;
+  flex-shrink: 0;  /* Prevent shrinking */
 }
+
+.photo-box img {
+  width: 100%;
+  height: 200px;  /* Set consistent height */
+  object-fit: cover;  /* Crop images to fit nicely */
+  border-radius: 15px;
+}
+
 
 .photo-box:hover {
   transform: scale(1.03);
